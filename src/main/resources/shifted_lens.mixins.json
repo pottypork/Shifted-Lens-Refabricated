@@ -1,0 +1,35 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.platypushasnohat.shifted_lens.mixins",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "AbstractFishMixin",
+    "CamelMixin",
+    "CodMixin",
+    "FireChargeItemMixin",
+    "GhastMixin",
+    "GuardianMixin",
+    "MobBucketItemMixin",
+    "PufferfishMixin",
+    "RabbitMixin",
+    "SalmonMixin",
+    "SnowballMixin",
+    "SquidMixin",
+    "TropicalFishMixin"
+  ],
+  "client": [
+    "client.MobAppearanceParticleMixin",
+    "client.PufferfishBigModelMixin",
+    "client.PufferfishMidModelMixin",
+    "client.PufferfishSmallModelMixin",
+    "client.RabbitRendererMixin",
+    "client.TadpoleModelMixin",
+    "client.TropicalFishModelAMixin",
+    "client.TropicalFishModelBMixin",
+    "client.TropicalFishRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

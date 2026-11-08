@@ -1,0 +1,42 @@
+{
+	"schemaVersion": 1,
+	"id": "shifted_lens",
+	"version": "${version}",
+	"name": "Shifted Lens",
+	"description": "Aims to improve many of Minecraft's mobs with new mechanics and features.",
+	"authors": [
+		".magmastrider.",
+		"-Ghoul-",
+		"platypushasnohat"
+	],
+	"contact": {
+		"homepage": "https://github.com/platypushasnohat/shifted-lens",
+		"sources": "https://github.com/platypushasnohat/shifted-lens",
+		"issues": "https://github.com/platypushasnohat/shifted-lens/issues"
+	},
+	"license": [
+		"MIT",
+		"All Rights Reserved"
+	],
+	"icon": "shifted_lens.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.platypushasnohat.shifted_lens.ShiftedLens"
+		],
+		"client": [
+			"com.platypushasnohat.shifted_lens.client.ShiftedLensClient"
+		]
+	},
+	"mixins": [
+		"shifted_lens.mixins.json"
+	],
+	"accessWidener": "shifted_lens.accesswidener",
+	"depends": {
+		"fabricloader": ">=0.16.0",
+		"minecraft": "1.21.1",
+		"java": ">=21",
+		"fabric-api": "*",
+		"forgeconfigapiport": "*"
+	}
+}

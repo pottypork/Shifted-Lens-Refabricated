@@ -1,0 +1,47 @@
+package com.platypushasnohat.shifted_lens.client.renderer.remodels;
+
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.math.Axis;
+import com.platypushasnohat.shifted_lens.client.models.SLSquidModel;
+import com.platypushasnohat.shifted_lens.registry.SLModelLayers;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.entity.MobRenderer;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Mth;
+import net.minecraft.world.entity.GlowSquid;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import org.jetbrains.annotations.NotNull;
+
+@Environment(EnvType.CLIENT)
+public class GlowSquidRemodelRenderer extends MobRenderer<GlowSquid, SLSquidModel<GlowSquid>> {
+
+    private static final ResourceLocation GLOW_SQUID = ResourceLocation.withDefaultNamespace("textures/entity/squid/glow_squid.png");
+
+    public GlowSquidRemodelRenderer(EntityRendererProvider.Context context) {
+        super(context, new SLSquidModel<>(context.bakeLayer(SLModelLayers.GLOW_SQUID)), 0.7F);
+    }
+
+    @Override
+    public @NotNull ResourceLocation getTextureLocation(@NotNull GlowSquid entity) {
+        return GLOW_SQUID;
+    }
+
+    @Override
+    protected void setupRotations(@NotNull GlowSquid entity, @NotNull PoseStack poseStack, float i, float g, float partialTicks, float scale) {
+        if (isEntityUpsideDown(entity)) {
+            poseStack.translate(0.0D, entity.getBbHeight() + 0.1F, 0.0D);
+            poseStack.mulPose(Axis.ZP.rotationDegrees(180.0F));
+        }
+        float translateY = entity.getBbHeight() * 0.5F;
+        poseStack.translate(0.0F, translateY, 0.0F);
+        poseStack.mulPose(Axis.YP.rotationDegrees(360.0F - Mth.rotLerp(partialTicks, entity.yRotO, entity.getYRot())));
+        poseStack.mulPose(Axis.XP.rotationDegrees((Mth.rotLerp(partialTicks, entity.xRotO, entity.getXRot()) + 90.0F) % 360.0F));
+        poseStack.translate(0.0F, -translateY, 0.0F);
+    }
+
+    @Override
+    protected float getBob(@NotNull GlowSquid entity, float f) {
+        return super.getBob(entity, f);
+    }
+}

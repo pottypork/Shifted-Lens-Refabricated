@@ -1,0 +1,34 @@
+package com.platypushasnohat.shifted_lens.client.renderer.layers;
+
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
+import com.platypushasnohat.shifted_lens.ShiftedLens;
+import com.platypushasnohat.shifted_lens.client.models.SLGhastModel;
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.entity.RenderLayerParent;
+import net.minecraft.client.renderer.entity.layers.RenderLayer;
+import net.minecraft.client.renderer.texture.OverlayTexture;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.monster.Ghast;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+
+@Environment(EnvType.CLIENT)
+public class GhastGlowLayer extends RenderLayer<Ghast, SLGhastModel> {
+
+    private static final RenderType GLOW_TEXTURE = RenderType.entityTranslucentEmissive(ResourceLocation.fromNamespaceAndPath(ShiftedLens.MOD_ID, "textures/entity/ghast/ghast_glow.png"));
+    private static final RenderType RETRO_GLOW_TEXTURE = RenderType.entityTranslucentEmissive(ResourceLocation.fromNamespaceAndPath(ShiftedLens.MOD_ID, "textures/entity/ghast/retro_ghast_glow.png"));
+
+    private static final int GLOW_COLOR = 0xBFFFFFFF;
+
+    public GhastGlowLayer(RenderLayerParent<Ghast, SLGhastModel> parent) {
+        super(parent);
+    }
+
+    @Override
+    public void render(PoseStack poseStack, MultiBufferSource multiBufferSource, int i, Ghast entity, float f, float g, float h, float j, float k, float l) {
+        VertexConsumer vertexConsumer = multiBufferSource.getBuffer(entity.getName().getString().equalsIgnoreCase("retro") ? RETRO_GLOW_TEXTURE : GLOW_TEXTURE);
+        this.getParentModel().renderToBuffer(poseStack, vertexConsumer, 0xF00000, OverlayTexture.NO_OVERLAY, GLOW_COLOR);
+    }
+}

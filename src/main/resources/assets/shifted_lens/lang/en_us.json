@@ -1,0 +1,15 @@
+{
+  "item.shifted_lens.squid_bucket": "Bucket of Squid",
+  "shifted_lens.cod.variant0": "Temperate",
+  "shifted_lens.cod.variant1": "Cold",
+  "shifted_lens.cod.variant2": "Warm",
+  "shifted_lens.salmon.variant0": "River",
+  "shifted_lens.salmon.variant1": "Ocean",
+  "shifted_lens.salmon.variant2": "Zombie",
+  "shifted_lens.salmon.variant3": "Silver",
+  "shifted_lens.squid.variant0": "Temperate",
+  "shifted_lens.squid.variant1": "Cold",
+  "subtitles.shifted_lens.fish_death": "Fish dies",
+  "subtitles.shifted_lens.fish_flop": "Fish flops",
+  "subtitles.shifted_lens.fish_hurt": "Fish hurts"
+}

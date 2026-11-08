@@ -1,0 +1,7 @@
+accessWidener v2 named
+
+accessible field net/minecraft/world/entity/animal/Rabbit moreCarrotTicks I
+accessible method net/minecraft/world/entity/animal/Rabbit wantsMoreFood ()Z
+
+accessible field net/minecraft/world/entity/SpawnPlacements DATA_BY_TYPE Ljava/util/Map;
+accessible method net/minecraft/world/entity/SpawnPlacements register (Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/world/entity/SpawnPlacementType;Lnet/minecraft/world/level/levelgen/Heightmap$Types;Lnet/minecraft/world/entity/SpawnPlacements$SpawnPredicate;)V
